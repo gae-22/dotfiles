@@ -70,7 +70,7 @@ function git-current-branch {
 
 # 右側に時間表示
 function rprompt {
-  echo "%D %t"
+  echo "%m %D %t"
 }
 
 PROMPT=`prompt`
