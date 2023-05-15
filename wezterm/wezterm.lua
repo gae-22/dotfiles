@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
+local act = wezterm.action
 
 wezterm.on('gui-startup', function(cmd)
     local tab, pane, window = mux.spawn_window(cmd or {})
@@ -8,50 +9,46 @@ end)
 
 local config = {
     adjust_window_size_when_changing_font_size = false,
+    colors = { cursor_bg = '#fffaf5', cursor_fg = 'black', cursor_border = '#fffaf5', },
     color_scheme = 'OneDark (base16)',
-    disable_default_key_bindings = true,
     enable_scroll_bar = true,
     -- font = wezterm.font("HackGenNerd Console", {weight="Regular", stretch="Normal", italic=false}),
     font = wezterm.font("PleckJP"),
     font_size = 20.0,
     hide_mouse_cursor_when_typing = true,
     hide_tab_bar_if_only_one_tab = true,
-    initial_cols = 80,
-    initial_rows = 24,
-    integrated_title_button_alignment = "Right",
-    integrated_title_button_color = "Auto",
     line_height = 1.2,
     macos_window_background_blur = 0,
-    mouse_wheel_scrolls_tabs = true,
-    -- native_macos_fullscreen_mode = true,
-    normalize_output_to_unicode_nfc = false,
     pane_focus_follows_mouse = false,
-    quit_when_all_windows_are_closed = false,
-    scroll_to_bottom_on_input = true,
     scrollback_lines = 10000,
     window_background_opacity = 0.8,
     window_decorations = "RESIZE",
-    use_ime = true,
+    window_padding = { left = '1cell', right = '1cell', top = '0.5cell', bottom = '0.5cell', },
     keys = {
+        -- increase font size
+        { key = '+', mods = 'CMD',       action = act.IncreaseFontSize },
+        -- decrease font size
+        { key = '-', mods = 'CMD',       action = act.DecreaseFontSize },
+        -- reset font size
+        { key = '0', mods = 'CMD',       action = act.ResetFontSize    },
         -- select the next pane
-        { key = '[', mods = 'CMD', action = wezterm.action.ActivatePaneDirection 'Next' },
+        { key = ']', mods = 'CMD',       action = act.ActivatePaneDirection 'Prev' },
         -- select the previous pane
-        { key = ']', mods = 'CMD', action = wezterm.action.ActivatePaneDirection 'Prev' },
-        -- make a pane by splitting the current pane vertically
-        { key = '¥', mods = 'CMD', action = wezterm.action.SplitPane { direction = 'Right', size = { Percent = 50 }, }, },
-        -- make a pane by splitting the current pane horizontally
-        { key = '-', mods = 'CMD', action =wezterm.action.SplitPane { direction = 'Down', size = { Percent = 50 }, }, },
+        { key = '[', mods = 'CMD',       action = act.ActivatePaneDirection 'Next' },
+        -- reset pane
+        { key = 'r', mods = 'CMD',       action = act.ResetTerminal},
+        -- split the current pane vertically
+        { key = 'd', mods = 'CMD',       action = act.SplitPane{ direction = 'Right', size = { Percent = 50 }, }, },
+        -- split the current pane horizontally
+        { key = 'd', mods = 'CMD|SHIFT', action = act.SplitPane{ direction = 'Down', size = { Percent = 50 }, }, },
         -- close the current pane
-        { key = 'w', mods = 'CMD', action = wezterm.action.CloseCurrentPane { confirm = true }, },
-        -- create a new tab
-        { key = 't', mods = 'CMD', action = wezterm.action{SpawnTab="CurrentPaneDomain"}, },
+        { key = 'w', mods = 'CMD',       action = act.CloseCurrentPane { confirm = true }, },
         -- close the current tab
-        { key = 'w', mods = 'CMD|SHIFT', action = wezterm.action{CloseCurrentTab={confirm=true}}, },
+        { key = 'w', mods = 'CMD|SHIFT', action = act{CloseCurrentTab={confirm=true}}, },
         -- move to the next tab
-        { key = ']', mods = 'CMD|SHIFT', action = wezterm.action{ActivateTabRelative=1}, },
+        { key = ']', mods = 'CMD|SHIFT', action = act{ActivateTabRelative=1}, },
         -- move to the previous tab
-        { key = '[', mods = 'CMD|SHIFT', action = wezterm.action{ActivateTabRelative=-1}, },
-        { key = "r", mods = "CTRL", action = wezterm.action{ EmitEvent = "open-nvtop-and-ytop", }, },
+        { key = '[', mods = 'CMD|SHIFT', action = act{ActivateTabRelative=-1}, },
     }
 }
 
