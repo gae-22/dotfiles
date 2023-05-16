@@ -6,6 +6,7 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="original"
+# ZSH_THEME='robbyrussell'
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -21,10 +22,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/git-prompt.sh
 
-alias ss="ssh sol"
-alias sn="ssh nest"
+alias ss="wezterm ssh sol"
+alias sn="wezterm ssh nest"
 
 alias vi="vim"
+alias ls="exa --icons"
+alias la="ls -a"
 
 alias gi ="git"
 alias gia="git add"
@@ -41,3 +44,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
+setopt share_history     # 同時に起動したzshで履歴を共有する
