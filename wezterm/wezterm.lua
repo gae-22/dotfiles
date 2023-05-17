@@ -11,7 +11,6 @@ end)
 
 local config = {
     adjust_window_size_when_changing_font_size = false,
-    colors = { cursor_bg = '#fffaf5', cursor_fg = 'black', cursor_border = '#fffaf5', },
     -- color_scheme = 'iceberg-dark',
     color_scheme = 'Guezwhoz',
     -- color_scheme = 'idleToes',
