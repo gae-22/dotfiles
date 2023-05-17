@@ -12,6 +12,7 @@ brew "cmatrix"
 brew "docker"
 brew "docker-compose"
 brew "exa"
+brew "ffmpeg"
 brew "jpeg", link: true
 brew "git"
 brew "git-secrets"
