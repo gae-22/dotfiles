@@ -23,7 +23,7 @@ local config = {
     skip_close_confirmation_for_processes_named = {''},
     text_background_opacity = 0.9,
     use_fancy_tab_bar = false,
-    window_background_opacity = 0.8,
+    window_background_opacity = 0.75,
     window_close_confirmation = 'NeverPrompt',
     window_decorations = 'RESIZE',
     window_padding = { left = '1cell', right = '1cell', top = '0.5cell', bottom = '0.5cell', },
@@ -66,7 +66,7 @@ local config = {
         scrollbar_thumb = '#222222',
 
         -- The color of the split lines between panes
-        split = '#444444',
+        split = '#333333',
 
 
         ansi = {'#080808','#ff5f5f','#87d7af','#d7d787','#5fafd7','#afafff','#77c7c7','#dadada'},
@@ -126,8 +126,6 @@ local config = {
         { key = ']', mods = 'CMD|SHIFT', action = act{ ActivateTabRelative=1}, },
         -- move to the previous tab
         { key = '[', mods = 'CMD|SHIFT', action = act{ ActivateTabRelative=-1}, },
-
-        -- vim ~/.wezterm.lua
     },
 }
 
