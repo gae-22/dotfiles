@@ -5,8 +5,8 @@ local act = wezterm.action
 local config = {}
 
 wezterm.on('gui-startup', function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
 end)
 
 local config = {
@@ -19,11 +19,14 @@ local config = {
     line_height = 1.2,
     macos_window_background_blur = 0,
     pane_focus_follows_mouse = false,
+    quit_when_all_windows_are_closed = true,
+    scroll_to_bottom_on_input = true,
     scrollback_lines = 10000,
     skip_close_confirmation_for_processes_named = {''},
-    text_background_opacity = 0.9,
+    text_background_opacity = 1.0,
     use_fancy_tab_bar = false,
-    window_background_opacity = 0.75,
+    use_ime = true,
+    window_background_opacity = 0.9,
     window_close_confirmation = 'NeverPrompt',
     window_decorations = 'RESIZE',
     window_padding = { left = '1cell', right = '1cell', top = '0.5cell', bottom = '0.5cell', },
@@ -40,7 +43,7 @@ local config = {
         foreground = '#c0c0c0',
         -- The default background color
         -- background = 'black',
-        background = '#1c1c1c',
+        background = '#2c2c2c',
 
         -- Overrides the cell background color when the current cell is occupied by the
         -- cursor and the cursor style is set to Block
