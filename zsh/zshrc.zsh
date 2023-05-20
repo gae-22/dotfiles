@@ -45,5 +45,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-setopt hist_ignore_dups  # 同じコマンドを履歴に残さない
 setopt share_history     # 同時に起動したzshで履歴を共有する
+setopt hist_ignore_space # 行頭にスペースがあるコマンドは履歴に残さない
+setopt hist_reduce_blanks # 余分なスペースは詰める
+setopt hist_verify       # 編集後のコマンドラインを確認する
+setopt inc_append_history # 既存の履歴に追加する
+setopt hist_expire_dups_first # 重複したコマンドのうち古い方を削除する
