@@ -5,8 +5,8 @@ local act = wezterm.action
 local config = {}
 
 wezterm.on('gui-startup', function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
+    local tab, pane, window = mux.spawn_window(cmd or {})
+    window:gui_window():maximize()
 end)
 
 local config = {
@@ -133,4 +133,3 @@ local config = {
 }
 
 return config
-
