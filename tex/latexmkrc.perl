@@ -17,4 +17,3 @@ if ($^O eq 'linux') {
     $dvi_previewer = "start %S";
     $pdf_previewer = "start %S";
 }
-
