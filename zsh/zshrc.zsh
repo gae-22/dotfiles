@@ -9,8 +9,8 @@ fi
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 export ZSH="$HOME/.oh-my-zsh"
-
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -65,6 +65,7 @@ alias sn="ssh nest"
 
 # attatch icons to ls
 alias ls="lsd"
+alias vi="nvim"
 
 # git
 alias gi="git"
@@ -75,4 +76,8 @@ alias gis="git status"
 alias gim="git merge"
 
 alias reload="source ~/.zshrc"
-alias vi="vim"
+export PATH="$PATH:/sbin"
+export PATH="/opt/homebrew/sbin:$PATH"
+eval "$(rbenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

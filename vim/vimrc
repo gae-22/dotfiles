@@ -16,10 +16,11 @@ set wildmenu
 "----------------------------------------
 call plug#begin()
 
-Plug 'preservim/nerdtree'
+  Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -156,3 +157,5 @@ endif
 inoremap jj <ESC>
 " open file tree
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
+
+colorscheme onedark
