@@ -63,7 +63,6 @@ setopt hist_reduce_blanks       # remove superfluous blanks before recording ent
 alias ss="ssh sol"
 alias sn="ssh nest"
 
-# attatch icons to ls
 alias ls="lsd"
 alias vi="nvim"
 
@@ -76,6 +75,9 @@ alias gis="git status"
 alias gim="git merge"
 
 alias reload="source ~/.zshrc"
+alias mtg="cd ~/dev/mma/mma-meeting && pipenv shell"
+alias run="python server.py"
+
 export PATH="$PATH:/sbin"
 export PATH="/opt/homebrew/sbin:$PATH"
 eval "$(rbenv init -)"
