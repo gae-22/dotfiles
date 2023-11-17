@@ -2,32 +2,29 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit
-  fi
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
-export ZSH="$HOME/.oh-my-zsh"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-
 # themes
 # ZSH_THEME="original"
 # ZSH_THEME='robbyrussell'
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
+fi
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 plugins=(
     git
@@ -35,7 +32,13 @@ plugins=(
     zsh-autosuggestions
 )
 
-source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(rbenv init -)"
 
 # ------------------------------
 # General Settings
@@ -62,6 +65,11 @@ setopt hist_ignore_dups         # ignore duplication command history list
 setopt share_history            # share command history data with the other sessions
 setopt hist_reduce_blanks       # remove superfluous blanks before recording entry
 
+zshaddhistory() {
+    # エラーの履歴を残さない
+    [[ "$?" == 0 ]]
+}
+
 # ------------------------------
 # Alias
 # ------------------------------
@@ -80,12 +88,9 @@ alias gip="git push"
 alias gis="git status"
 alias gim="git merge"
 
+# others
 alias reload="source ~/.zshrc"
-alias mtg="cd ~/dev/mma/mma-meeting && pipenv shell"
-alias run="python server.py"
+alias activate="source .venv/bin/activate"
 
-export PATH="$PATH:/sbin"
-export PATH="/opt/homebrew/sbin:$PATH"
-eval "$(rbenv init -)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias qiita="npx qiita"
+alias zenn="npx zenn"
