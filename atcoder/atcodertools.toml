@@ -1,0 +1,18 @@
+[codestyle]
+indent_type='space'
+indent_width=4
+template_file='~/dev/compro/template.cpp'
+workspace_dir='~/dev/compro/AtCoder_Beginner_Contest/'
+lang='cpp'
+[compiler]
+compile_command='g++ main.cpp -o main -std=c++17'
+compile_only_when_diff_detected=true
+[tester]
+compile_before_testing=true
+compile_only_when_diff_detected=true
+timeout_adjustment=1.2
+[etc]
+download_without_login=false
+parallel_download=false
+save_no_session_cache=false
+skip_existing_problems=false
