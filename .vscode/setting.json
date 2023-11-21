@@ -1,0 +1,195 @@
+{
+    // --- latex start ---
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?．。，、（）「」［］｛｝《》てにをはがのともへでや",
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.unicodeHighlight.invisibleCharacters": true,
+        "editor.unicodeHighlight.allowedCharacters": {
+            "，": true,
+            "．": true,
+            "！": true,
+            "？": true,
+            "［": true,
+            "］": true,
+            "｛": true,
+            "｝": true,
+            "＜": true,
+            "＞": true
+        },
+        "files.trimTrailingWhitespace": true
+    },
+    "latex-workshop.message.latexlog.exclude": [
+        "(Font shape `(JY1|JT1|JY2|JT2)(/.*)(sl|it|sc)'.*|Some font shapes were not available.*)"
+    ],
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.outDir": "./out",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.invert": 0,
+    "latex-workshop.latexindent.path": "/opt/homebrew/bin/latexindent",
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-l",
+        "/Users/kanegaeryota/dev/latex-template/latexindent.yaml",
+        "-r"
+    ],
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-r",
+                "/Users/kanegaeryota/.latexmkrc",
+                "-cd",
+                "-outdir=%OUTDIR%",
+                "%DOC_EXT%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lualatex",
+            "tools": ["latexmk"]
+        }
+    ],
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.dvi": true,
+        "**/*.aux": true,
+        "**/*.fls": true,
+        "**/*.atfi": true,
+        "**/*.nav": true,
+        "**/*.snm": true,
+        "**/*.toc": true,
+        "**/*.asv": true,
+        "**/*.stderr": true,
+        "**/*.stdout": true,
+        "**/_minted-*/": true,
+        "**/_markdown_*/": true,
+        "**/pythontex-files-*/": true,
+        "**/*.pytxcode": true,
+        "**/*.markdown.in": true,
+        "**/*.markdown.lua": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.synctex.gz": true,
+        "**/*.synctex(busy)": true,
+        "**/__latexindent_temp.tex": true,
+        "**/*.pyg": true,
+        "**/*.log": true,
+        "**/*.out": true,
+        "**/*.bbl": true,
+        "**/*.blg": true,
+        "**/*.bcf": true,
+        "**/*-blx.bib": true,
+        "**/*.run.xml": true,
+        "**/*.texmfcache": true,
+        "**/svg-inkscape*": true
+    },
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.fileTypes": [
+        "**/*.acn",
+        "**/*.acr",
+        "**/*.alg",
+        // "**/*.aux",
+        "**/*.bbl",
+        "**/*.bcf",
+        "**/*.blg",
+        "**/*.blg",
+        "**/*.dvi",
+        "**/*.fdb_latexmk",
+        "**/*.fls",
+        "**/*.glg",
+        "**/*.glo",
+        "**/*.gls",
+        "**/*.idx",
+        "**/*.ind",
+        "**/*.ist",
+        "**/*.lof",
+        // "**/*.log",
+        "**/*.lot",
+        "**/*.nav",
+        "**/*.out",
+        "**/*.pdfsync",
+        "**/*.ps",
+        "**/*.run.xml",
+        "**/*.snm",
+        // "**/*.synctex.gz",
+        "**/*.synctex.gz(busy)",
+        "**/*.toc",
+        "**/*.vrb"
+    ],
+
+    // --- latex end ---
+
+    "audioCues.volume": 1,
+    "code-runner.runInTerminal": true,
+    "diffEditor.wordWrap": "on",
+    "editor.autoIndent": "full",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "pleck-jp,HackGenNerdConsole-Regular",
+    "editor.fontSize": 18,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineHeight": 1.2,
+    "editor.minimap.enabled": false,
+    "editor.quickSuggestions": { "strings": true },
+    "editor.renderWhitespace": "all",
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "on",
+    "editor.tabSize": 4,
+    "errorLens.fontFamily": "pleck-jp,HackGenNerdConsole-Regular",
+    "errorLens.fontSize": "18",
+    "files.associations": { "*.css": "tailwindcss" },
+    "files.autoSave": "onFocusChange",
+    "git.openRepositoryInParentFolders": "never",
+    "git.autofetch": true,
+    "github.copilot.enable": { "*": true, "scminput": false },
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "terminal.integrated.fontSize": 16,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.productIconTheme": "macos-modern",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.lineHeight": 1.2,
+
+    // langages specific settings
+
+    "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+    "[c]": { "editor.defaultFormatter": "xaver.clang-format" },
+    "[cpp]": { "editor.defaultFormatter": "xaver.clang-format" },
+    "C_Cpp.clang_format_path": "/Users/kanegaeryota/dotfiles/c_cpp/.clang-format",
+    "markdown.marp.enableHtml": true,
+    "markdown.marp.themes": [
+        "https://raw.githubusercontent.com/rnd195/my-marp-themes/main/beamer.css",
+        "./theme/mytheme.css",
+        "./theme/presentation.css",
+        "./theme/a4.css"
+    ],
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.fontFamily": "MesloLGS NF"
+}

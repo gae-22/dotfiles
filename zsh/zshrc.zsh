@@ -23,7 +23,7 @@ if type brew &>/dev/null; then
     compinit
 fi
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/dotfiles/zsh/p10k.zsh ]] || source ~/dotfiles/zsh/p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 plugins=(
@@ -34,10 +34,7 @@ plugins=(
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
-
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
 eval "$(rbenv init -)"
 
 # ------------------------------
@@ -54,6 +51,7 @@ zstyle ':completion:*:default' menu select=1
 
 setopt correct                  # correct mistyped commands
 setopt notify                   # report status of background jobs immediately
+unset ZSH_AUTOSUGGEST_USE_ASYNC # disable async autosuggest
 
 # ------------------------------
 # History
@@ -64,11 +62,7 @@ SAVEHIST=1000                   # the number of history entries to save in a his
 setopt hist_ignore_dups         # ignore duplication command history list
 setopt share_history            # share command history data with the other sessions
 setopt hist_reduce_blanks       # remove superfluous blanks before recording entry
-
-zshaddhistory() {
-    # エラーの履歴を残さない
-    [[ "$?" == 0 ]]
-}
+zshaddhistory() {[[ "$?" == 0 ]]}
 
 # ------------------------------
 # Alias
@@ -94,3 +88,4 @@ alias activate="source .venv/bin/activate"
 
 alias qiita="npx qiita"
 alias zenn="npx zenn"
+alias att="atcoder-tools"
