@@ -143,6 +143,9 @@
     "audioCues.volume": 1,
     "code-runner.runInTerminal": true,
     "diffEditor.wordWrap": "on",
+    "editor.accessibilitySupport": "off",
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
     "editor.autoIndent": "full",
     "editor.copyWithSyntaxHighlighting": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -166,11 +169,16 @@
     "files.autoSave": "onFocusChange",
     "git.openRepositoryInParentFolders": "never",
     "git.autofetch": true,
-    "github.copilot.enable": { "*": true, "scminput": false },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false
+    },
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontSize": 18,
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.productIconTheme": "macos-modern",
@@ -178,18 +186,16 @@
     "terminal.integrated.lineHeight": 1.2,
 
     // langages specific settings
-
     "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
     "[c]": { "editor.defaultFormatter": "xaver.clang-format" },
     "[cpp]": { "editor.defaultFormatter": "xaver.clang-format" },
     "C_Cpp.clang_format_path": "/Users/kanegaeryota/dotfiles/c_cpp/.clang-format",
-    "markdown.marp.enableHtml": true,
     "markdown.marp.themes": [
         "https://raw.githubusercontent.com/rnd195/my-marp-themes/main/beamer.css",
         "./theme/mytheme.css",
         "./theme/presentation.css",
-        "./theme/a4.css"
+        "./theme/a4.css",
+        "./style/presentation.css"
     ],
-    "editor.accessibilitySupport": "off",
-    "terminal.integrated.fontFamily": "MesloLGS NF"
+    "markdown.marp.enableHtml": true,
 }

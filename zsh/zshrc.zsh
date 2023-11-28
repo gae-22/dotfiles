@@ -16,6 +16,7 @@ eval "$(pyenv init -)"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
 
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -24,7 +25,6 @@ if type brew &>/dev/null; then
 fi
 
 [[ ! -f ~/dotfiles/zsh/p10k.zsh ]] || source ~/dotfiles/zsh/p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 plugins=(
     git
