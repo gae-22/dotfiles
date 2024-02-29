@@ -1,67 +1,155 @@
-set number
-set termguicolors
-set updatetime=100
+"" options
+set number  " 行番号を表示する
+set encoding=UTF-8
+set backspace=indent,eol,start  " バックスペースを有効にする
 
-call plug#begin('~/.vim/plugged')
+"" キーマップ
+" タブを作成する
+nnoremap tc :tabnew<CR>
+" 前のタブを開く
+nnoremap tp :tabp<CR>
+" 次のタブを開く
+nnoremap tn :tabn<CR>
+" タブを閉じる
+nnoremap tx :tabclose<CR>
+
+
+"" plugin
+call plug#begin()
+
+    "" vim-airline
+    " ステータスラインを表示する
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'tomasiser/vim-code-dark'
+
+    "" fern.vim
+    Plug 'lambdalisue/fern.vim'
+    " diffを表示する
+    Plug 'lambdalisue/fern-git-status.vim'
+    " アイコンを表示する
+    Plug 'lambdalisue/nerdfont.vim'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    " アイコンに色をつける
+    Plug 'lambdalisue/glyph-palette.vim'
+
+    "" git
+    " diffを表示する
     Plug 'airblade/vim-gitgutter'
-    Plug 'airblade/vim-rooter'
-    Plug 'dense-analysis/ale'
-    Plug 'honza/vim-snippets'
-    Plug 'itchyny/lightline.vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'joshdick/onedark.vim'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    Plug 'kassio/neoterm'
-    Plug 'mbbill/undotree'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'ntpeters/vim-better-whitespace'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'sheerun/vim-polyglot'
-    Plug 'SirVer/ultisnips'
-    Plug 'tpope/vim-commentary'
+    " gitコマンドを使う
     Plug 'tpope/vim-fugitive'
-    Plug 'xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-    Plug 'Yggdroot/indentLine'
+    " GitHubを開く
+    Plug 'tpope/vim-rhubarb'
+
+    "" fzf
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
-autocmd VimEnter * execute 'NERDTree'
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-let g:NERDTreeGitStatusUseNerdFonts = 1
-let NERDTreeShowHidden = 1
-if argc() == 0 || argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
-    autocmd vimenter * NERDTree
-else
-    autocmd vimenter * NERDTree | wincmd p
-endif
+"" vim-airline
+" VSCodeのテーマ
+colorscheme codedark
+let g:airline_theme = 'codedark'
+" カラーテーマの透明度を変更する
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
-colorscheme onedark
-let g:ale_fix_on_save = 1
-let g:lightline = {'colorscheme': 'onedark'}
-let g:neoterm_autoscroll=1
-let g:neoterm_default_mod='belowright'
-let g:neoterm_size=10
+let g:airline_transparency = 10
+" powerlineを有効にする
+let g:airline_powerline_fonts = 1
+" タブラインを表示する
+let g:airline#extensions#tabline#enabled = 1
+" ステータスラインに表示する項目を変更する
+" 参考: https://original-game.com/vim-airline/
+let g:airline#extensions#default#layout = [
+  \ [ 'a', 'b', 'c' ],
+  \ ['z']
+  \ ]
+let g:airline_section_c = '%t %M'
+let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+let g:airline#extensions#hunks#non_zero_only = 1 " 変更がなければdiffの行数を表示しない
+" タブラインの表示を変更する
+" 参考: https://www.reddit.com/r/vim/comments/crs61u/best_airline_settings/
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#show_close_button = 0
 
-tnoremap <silent> <C-w> <C-\><C-n><C-w>
-nnoremap <silent> <C-n> :TREPLSendLine<CR>j0
-vnoremap <silent> <C-n> V:TREPLSendSelection<CR>'>j0
 
-nmap <C-e> :NERDTreeToggle<CR>
-nmap <C-p> :History<CR>
-nmap <C-r> :UndotreeToggle<CR>
-nmap s <Plug>(easymotion-overwin-f2)
+"" ferm.vim
+" ファイルツリーを表示/非表示する
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+" アイコンを表示する
+let g:fern#renderer = 'nerdfont'
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+"" git操作
+" 前の変更箇所へ移動する
+nnoremap g[ :GitGutterPrevHunk<CR>
+" 次の変更箇所へ移動する
+nnoremap g] :GitGutterNextHunk<CR>
+" diffをハイライトする
+nnoremap gh :GitGutterLineHighlightsToggle<CR>
+" カーソル行のdiffを表示する
+nnoremap gp :GitGutterPreviewHunk<CR>
+" 記号の色を変更する
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=blue
+highlight GitGutterDelete ctermfg=red
+" 該当のファイルをGitHubで開く
+nnoremap gb :Gbrowse<CR>
+vnoremap gb :Gbrowse<CR>
+
+
+"" fzf
+" ファイル検索を開く
+" git管理されていれば:GFiles、そうでなければ:Filesを実行する
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
   else
-    call CocAction('doHover')
+    :GitFiles
   endif
-endfunction
+endfun
+nnoremap <C-p> :call FzfOmniFiles()<CR>
+
+" 文字列検索を開く
+" <S-?>でプレビューを表示/非表示する
+command! -bang -nargs=* Rg
+\ call fzf#vim#grep(
+\ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+\ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 3..'}, 'up:60%')
+\ : fzf#vim#with_preview({'options': '--exact --delimiter : --nth 3..'}, 'right:50%:hidden', '?'),
+\ <bang>0)
+nnoremap <C-g> :Rg<CR>
+
+" カーソル位置の単語をファイル検索する
+nnoremap fr vawy:Rg <C-R>"<CR>
+" 選択した単語をファイル検索する
+xnoremap fr y:Rg <C-R>"<CR>
+
+" バッファ検索を開く
+nnoremap fb :Buffers<CR>
+" fpでバッファの中で1つ前に開いたファイルを開く
+nnoremap fp :Buffers<CR><CR>
+" 開いているファイルの文字列検索を開く
+nnoremap fl :BLines<CR>
+" マーク検索を開く
+nnoremap fm :Marks<CR>
+" ファイル閲覧履歴検索を開く
+nnoremap fh :History<CR>
+" コミット履歴検索を開く
+nnoremap fc :Commits<CR>

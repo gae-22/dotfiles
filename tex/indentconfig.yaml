@@ -1,5 +1,5 @@
 #
-# latexindent.pl, version 3.23.4, 2023-11-19
+# latexindent.pl, version 3.23.5, 2024-01-01
 #
 # defaultSettings.yaml, the default settings for latexindent.pl
 #
@@ -64,7 +64,7 @@ backupExtension: .bak
 #           myfile.bak0, myfile.bak1, myfile.bak2
 #   - if you set onlyOnebackUp to 1, then the backup file will
 #     be overwritten each time (not recommended until you trust the script)
-onlyOneBackUp: 1
+onlyOneBackUp: 0
 
 # some users may want a finite number of backup files,
 # say at most 3; in which case, they can change this maxNumberOfBackUps.
@@ -159,18 +159,18 @@ lookForAlignDelims:
   tabular:
     delims: 1
     alignDoubleBackSlash: 1
-    spacesBeforeDoubleBackSlash: 2
-    multiColumnGrouping: 0
+    spacesBeforeDoubleBackSlash: 1
+    multiColumnGrouping: 1
     alignRowsWithoutMaxDelims: 1
-    spacesBeforeAmpersand: 2
+    spacesBeforeAmpersand: 1
     spacesAfterAmpersand: 1
     justification: left
-    alignFinalDoubleBackSlash: 0
+    alignFinalDoubleBackSlash: 1
     dontMeasure: 0
     delimiterRegEx: (?<!\\)(&)
     delimiterJustification: left
     lookForChildCodeBlocks: 1
-    alignContentAfterDoubleBackSlash: 0
+    alignContentAfterDoubleBackSlash: 1
     spacesAfterDoubleBackSlash: 1
   tabularx:
     delims: 1
@@ -239,13 +239,13 @@ lookForAlignDelims:
 #       \end{itemize}
 # then populate indentAfterItems. See also itemNames
 indentAfterItems:
-    itemize: 1
-    itemize*: 1
-    enumerate: 1
-    enumerate*: 1
-    description: 1
-    description*: 1
-    list: 1
+  itemize: 1
+  itemize*: 1
+  enumerate: 1
+  enumerate*: 1
+  description: 1
+  description*: 1
+  list: 1
 
 # if you want to use other names for your items (for example, \part)
 # then populate them here; note that you can trick latexindent.pl
@@ -283,10 +283,10 @@ specialBeginEnd:
 # or add your own title command
 indentAfterHeadings:
   part:
-    indentAfterThisHeading: 4
+    indentAfterThisHeading: 0
     level: 1
   chapter:
-    indentAfterThisHeading: 4
+    indentAfterThisHeading: 0
     level: 2
   section:
     indentAfterThisHeading: 4
@@ -298,13 +298,13 @@ indentAfterHeadings:
     indentAfterThisHeading: 4
     level: 4
   subsubsection:
-    indentAfterThisHeading: 4
+    indentAfterThisHeading: 0
     level: 5
   paragraph:
-    indentAfterThisHeading: 4
+    indentAfterThisHeading: 0
     level: 6
   subparagraph:
-    indentAfterThisHeading: 4
+    indentAfterThisHeading: 0
     level: 7
 
 # maximum indentation, off by default
@@ -331,11 +331,11 @@ noAdditionalIndent:
 # then you can populate them in indentRules; for example, you might just want
 # to use a space " " or maybe a double tab "\t\t"
 indentRules:
-  myenvironment: "    "
-  anotherenvironment: "    "
+  myenvironment: "  "
+  anotherenvironment: "  "
   chapter: "  "
-  section: "    "
-  item: "      "
+  section: "  "
+  item: "    "
   myitem: "        "
 
 # set noAdditionalIndent globally for codeblocks
@@ -656,7 +656,7 @@ fineTuning:
     betterFullStop: |-
       (?x)                                # ignore spaces in the below
       (?:                                 #
-        \.\)                              # .)
+        \.\)                              # .) 
         (?!\h*[a-z])                      # not *followed by* a-z
       )                                   #
       |                                   # OR
@@ -672,7 +672,7 @@ fineTuning:
             (?:[wW]\.[rR]\.[tT])          # w.r.t OR W.r.t OR w.R.t OR w.r.T OR W.R.t OR W.r.T OR w.R.T OR W.R.T
           )                               #
         )                                 #
-      )                                   #
+      )                                   # 
       \.                                  # .
       (?!                                 # not *followed by*
         (?:                               #

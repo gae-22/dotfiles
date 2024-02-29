@@ -1,5 +1,21 @@
 {
-    // --- latex start ---
+    // start of each language settings
+    "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+    "[c]": { "editor.defaultFormatter": "xaver.clang-format" },
+    "[cpp]": { "editor.defaultFormatter": "xaver.clang-format" },
+    "C_Cpp.clang_format_path": "/Users/kanegaeryota/dotfiles/c_cpp/.clang-format",
+    "markdown.marp.themes": [
+        "./theme/presentation.css",
+        "./theme/mytheme.css",
+        "./materials/markdown-slide/theme/mytheme.css",
+        "./slides/theme/presentation.css"
+    ],
+    "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "markdown.extension.tableFormatter.enabled": false,
+    "markdown.extension.tableFormatter.normalizeIndentation": true,
+    "markdown.marp.enableHtml": true,
+
+    // start of latex settings
     "[latex]": {
         "editor.defaultFormatter": "James-Yu.latex-workshop",
         "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?．。，、（）「」［］｛｝《》てにをはがのともへでや",
@@ -10,7 +26,6 @@
             "comments": false,
             "strings": false
         },
-        "editor.bracketPairColorization.enabled": true,
         "editor.unicodeHighlight.invisibleCharacters": true,
         "editor.unicodeHighlight.allowedCharacters": {
             "，": true,
@@ -31,7 +46,6 @@
     ],
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.latex.autoBuild.run": "onSave",
-    "latex-workshop.latex.outDir": "./out",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.view.pdf.invert": 0,
@@ -49,13 +63,7 @@
         {
             "name": "latexmk",
             "command": "latexmk",
-            "args": [
-                "-r",
-                "/Users/kanegaeryota/.latexmkrc",
-                "-cd",
-                "-outdir=%OUTDIR%",
-                "%DOC_EXT%"
-            ]
+            "args": ["-r", "/Users/kanegaeryota/.latexmkrc", "-cd", "%DOC_EXT%"]
         }
     ],
     "latex-workshop.latex.recipes": [
@@ -66,42 +74,44 @@
     ],
 
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/*.dvi": true,
-        "**/*.aux": true,
-        "**/*.fls": true,
-        "**/*.atfi": true,
-        "**/*.nav": true,
-        "**/*.snm": true,
-        "**/*.toc": true,
-        "**/*.asv": true,
-        "**/*.stderr": true,
-        "**/*.stdout": true,
-        "**/_minted-*/": true,
-        "**/_markdown_*/": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/.venv": true,
         "**/pythontex-files-*/": true,
-        "**/*.pytxcode": true,
+        "**/CVS": true,
+        "**/svg-inkscape*": true,
+        "**/Thumbs.db": true,
+        "**/*.asv": true,
+        "**/*.atfi": true,
+        "**/*.aux": true,
+        // "**/*.bbl": true,
+        // "**/*.bcf": true,
+        // "**/*.blg": true,
+        "**/*-blx.bib": true,
+        // "**/*.dvi": true,
+        // "**/*.fdb_latexmk": true,
+        // "**/*.fls": true,
+        "**/*.log": true,
         "**/*.markdown.in": true,
         "**/*.markdown.lua": true,
-        "**/*.fdb_latexmk": true,
-        "**/*.synctex.gz": true,
-        "**/*.synctex(busy)": true,
-        "**/__latexindent_temp.tex": true,
-        "**/*.pyg": true,
-        "**/*.log": true,
+        // "**/*.nav": true,
         "**/*.out": true,
-        "**/*.bbl": true,
-        "**/*.blg": true,
-        "**/*.bcf": true,
-        "**/*-blx.bib": true,
-        "**/*.run.xml": true,
+        "**/*.pyg": true,
+        "**/*.pytxcode": true,
+        // "**/*.snm": true,
+        // "**/*.synctex.gz": true,
+        // "**/*.synctex(busy)": true,
         "**/*.texmfcache": true,
-        "**/svg-inkscape*": true
+        // "**/*.toc": true,
+        "**/*.run.xml": true,
+        "**/*.stderr": true,
+        "**/*.stdout": true,
+        "**/__latexindent_temp.tex": true,
+        "**/__pycache__": true,
+        "**/_markdown_*/": true,
+        "**/_minted-*/": true
     },
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.clean.method": "glob",
@@ -127,7 +137,7 @@
         // "**/*.log",
         "**/*.lot",
         "**/*.nav",
-        "**/*.out",
+        // "**/*.out",
         "**/*.pdfsync",
         "**/*.ps",
         "**/*.run.xml",
@@ -137,21 +147,24 @@
         "**/*.toc",
         "**/*.vrb"
     ],
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.tex": "${capture}.pdf",
+        "*.svg": "${capture}*.pdf"
+    },
+    // end of latex settings
 
-    // --- latex end ---
-
-    "audioCues.volume": 1,
+    "accessibility.signals.sounds.volume": 1,
     "code-runner.runInTerminal": true,
     "diffEditor.wordWrap": "on",
     "editor.accessibilitySupport": "off",
-    "editor.autoClosingBrackets": "always",
-    "editor.autoClosingQuotes": "always",
     "editor.autoIndent": "full",
+    "editor.bracketPairColorization.enabled": true,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.detectIndentation": false,
-    "editor.fontFamily": "pleck-jp,HackGenNerdConsole-Regular",
-    "editor.fontSize": 18,
+    "editor.fontFamily": "PleckJP-Regular,HackGenNerdConsole-Regular",
+    "editor.fontSize": 20,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
@@ -161,14 +174,13 @@
     "editor.quickSuggestions": { "strings": true },
     "editor.renderWhitespace": "all",
     "editor.tabCompletion": "on",
-    "editor.wordWrap": "on",
     "editor.tabSize": 4,
+    "editor.wordWrap": "on",
     "errorLens.fontFamily": "pleck-jp,HackGenNerdConsole-Regular",
-    "errorLens.fontSize": "18",
     "files.associations": { "*.css": "tailwindcss" },
     "files.autoSave": "onFocusChange",
-    "git.openRepositoryInParentFolders": "never",
     "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "never",
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
@@ -178,24 +190,12 @@
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
-    "terminal.integrated.fontSize": 18,
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "vscode-great-icons",
-    "workbench.productIconTheme": "macos-modern",
     "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.fontSize": 18,
     "terminal.integrated.lineHeight": 1.2,
-
-    // langages specific settings
-    "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
-    "[c]": { "editor.defaultFormatter": "xaver.clang-format" },
-    "[cpp]": { "editor.defaultFormatter": "xaver.clang-format" },
-    "C_Cpp.clang_format_path": "/Users/kanegaeryota/dotfiles/c_cpp/.clang-format",
-    "markdown.marp.themes": [
-        "https://raw.githubusercontent.com/rnd195/my-marp-themes/main/beamer.css",
-        "./theme/mytheme.css",
-        "./theme/presentation.css",
-        "./theme/a4.css",
-        "./style/presentation.css"
-    ],
-    "markdown.marp.enableHtml": true,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.editorAssociations": { "*.db": "default" },
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.productIconTheme": "macos-modern"
 }
