@@ -15,6 +15,145 @@
     "markdown.extension.tableFormatter.normalizeIndentation": true,
     "markdown.marp.enableHtml": true,
 
+    // start of latex settings
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?．。，、（）「」［］｛｝《》てにをはがのともへでや",
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        },
+        "editor.unicodeHighlight.invisibleCharacters": true,
+        "editor.unicodeHighlight.allowedCharacters": {
+            "，": true,
+            "．": true,
+            "！": true,
+            "？": true,
+            "［": true,
+            "］": true,
+            "｛": true,
+            "｝": true,
+            "＜": true,
+            "＞": true
+        },
+        "files.trimTrailingWhitespace": true
+    },
+    "latex-workshop.message.latexlog.exclude": [
+        "(Font shape `(JY1|JT1|JY2|JT2)(/.*)(sl|it|sc)'.*|Some font shapes were not available.*)"
+    ],
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.invert": 0,
+    "latex-workshop.latexindent.path": "/opt/homebrew/bin/latexindent",
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-l",
+        "/Users/kanegaeryota/dev/latex-template/latexindent.yaml",
+        "-r"
+    ],
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": ["-r", "/Users/kanegaeryota/.latexmkrc", "-cd", "%DOC_EXT%"]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lualatex",
+            "tools": ["latexmk"]
+        }
+    ],
+
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/.venv": true,
+        "**/pythontex-files-*/": true,
+        "**/CVS": true,
+        "**/svg-inkscape*": true,
+        "**/Thumbs.db": true,
+        "**/*.asv": true,
+        "**/*.atfi": true,
+        "**/*.aux": true,
+        // "**/*.bbl": true,
+        // "**/*.bcf": true,
+        // "**/*.blg": true,
+        "**/*-blx.bib": true,
+        // "**/*.dvi": true,
+        // "**/*.fdb_latexmk": true,
+        // "**/*.fls": true,
+        "**/*.log": true,
+        "**/*.markdown.in": true,
+        "**/*.markdown.lua": true,
+        // "**/*.nav": true,
+        "**/*.out": true,
+        "**/*.pyg": true,
+        "**/*.pytxcode": true,
+        // "**/*.snm": true,
+        // "**/*.synctex.gz": true,
+        // "**/*.synctex(busy)": true,
+        "**/*.texmfcache": true,
+        // "**/*.toc": true,
+        "**/*.run.xml": true,
+        "**/*.stderr": true,
+        "**/*.stdout": true,
+        "**/__latexindent_temp.tex": true,
+        "**/__pycache__": true,
+        "**/_markdown_*/": true,
+        "**/_minted-*/": true
+    },
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.fileTypes": [
+        "**/*.acn",
+        "**/*.acr",
+        "**/*.alg",
+        // "**/*.aux",
+        "**/*.bbl",
+        "**/*.bcf",
+        "**/*.blg",
+        "**/*.blg",
+        "**/*.dvi",
+        "**/*.fdb_latexmk",
+        "**/*.fls",
+        "**/*.glg",
+        "**/*.glo",
+        "**/*.gls",
+        "**/*.idx",
+        "**/*.ind",
+        "**/*.ist",
+        "**/*.lof",
+        // "**/*.log",
+        "**/*.lot",
+        "**/*.nav",
+        // "**/*.out",
+        "**/*.pdfsync",
+        "**/*.ps",
+        "**/*.run.xml",
+        "**/*.snm",
+        // "**/*.synctex.gz",
+        "**/*.synctex.gz(busy)",
+        "**/*.toc",
+        "**/*.vrb"
+    ],
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.tex": "${capture}.pdf",
+        "*.svg": "${capture}*.pdf"
+    },
+    // end of latex settings
+
     "accessibility.signals.sounds.volume": 1,
     "code-runner.runInTerminal": true,
     "diffEditor.wordWrap": "on",
