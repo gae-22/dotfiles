@@ -164,7 +164,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.detectIndentation": false,
     "editor.fontFamily": "PleckJP-Regular,HackGenNerdConsole-Regular",
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
