@@ -52,10 +52,10 @@ call plug#end()
 colorscheme codedark
 let g:airline_theme = 'codedark'
 " カラーテーマの透明度を変更する
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight SpecialKey ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
+" highlight NonText ctermbg=NONE guibg=NONE
+" highlight SpecialKey ctermbg=NONE guibg=NONE
+" highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 let g:airline_transparency = 10
 " powerlineを有効にする
