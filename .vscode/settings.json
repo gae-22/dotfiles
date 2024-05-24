@@ -4,16 +4,36 @@
     "[c]": { "editor.defaultFormatter": "xaver.clang-format" },
     "[cpp]": { "editor.defaultFormatter": "xaver.clang-format" },
     "C_Cpp.clang_format_path": "/Users/kanegaeryota/dotfiles/c_cpp/.clang-format",
-    "markdown.marp.themes": [
-        "./theme/presentation.css",
-        "./theme/mytheme.css",
-        "./materials/markdown-slide/theme/mytheme.css",
-        "./slides/theme/presentation.css"
-    ],
+    "markdown.marp.themes": ["./slides/theme/presentation.css"],
     "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "markdown.extension.tableFormatter.enabled": false,
-    "markdown.extension.tableFormatter.normalizeIndentation": true,
     "markdown.marp.enableHtml": true,
+    "[go]": { "editor.defaultFormatter": "golang.go" },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+
+    "[typst]": {
+        "editor.wordWrap": "on",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "myriad-dreamin.tinymist",
+        "editor.unicodeHighlight.allowedCharacters": {
+            "，": true,
+            "．": true,
+            "！": true,
+            "？": true,
+            "［": true,
+            "］": true,
+            "｛": true,
+            "｝": true,
+            "＜": true,
+            "＞": true,
+            "：": true
+        }
+    },
 
     // start of latex settings
     "[latex]": {
@@ -78,7 +98,7 @@
         "**/.git": true,
         "**/.hg": true,
         "**/.svn": true,
-        "**/.venv": true,
+        // "**/.venv": true,
         "**/pythontex-files-*/": true,
         "**/CVS": true,
         "**/svg-inkscape*": true,
@@ -150,7 +170,8 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.tex": "${capture}.pdf",
-        "*.svg": "${capture}*.pdf"
+        "*.svg": "${capture}*.pdf",
+        "*.typ": "${capture}.pdf"
     },
     // end of latex settings
 
@@ -161,8 +182,7 @@
     "editor.autoIndent": "full",
     "editor.bracketPairColorization.enabled": true,
     "editor.copyWithSyntaxHighlighting": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "nvarner.typst-lsp",
     "editor.fontFamily": "PleckJP-Regular,HackGenNerdConsole-Regular",
     "editor.fontSize": 18,
     "editor.formatOnSave": true,
@@ -197,5 +217,19 @@
     "workbench.colorTheme": "One Dark Pro",
     "workbench.editorAssociations": { "*.db": "default" },
     "workbench.iconTheme": "vscode-great-icons",
-    "workbench.productIconTheme": "macos-modern"
+    "workbench.productIconTheme": "macos-modern",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.linkedEditing": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    "typst-lsp.experimentalFormatterMode": "on",
+    "typst-lsp.exportPdf": "onType",
+    "typst-preview.cursorIndicator": true,
+    "typst-preview.scrollSync": "onSelectionChange",
+    "typst-preview.showInActivityBar": true,
+    "explorer.compactFolders": false,
+    "explorer.fileNesting.expand": false,
+    "explorer.incrementalNaming": "smart",
+    "editor.experimentalInlineEdit.backgroundColoring": true,
+    "editor.experimentalInlineEdit.enabled": true,
 }

@@ -24,6 +24,7 @@ local config = {
     scrollback_lines = 10000,
     skip_close_confirmation_for_processes_named = {''},
     text_background_opacity = 1.0,
+    underline_thickness = 4.0,
     use_fancy_tab_bar = false,
     use_ime = true,
     window_background_opacity = 0.9,
@@ -69,7 +70,7 @@ local config = {
         scrollbar_thumb = '#222222',
 
         -- The color of the split lines between panes
-        split = '#333333',
+        split = '#777777',
 
 
         ansi = {'#080808','#ff5f5f','#87d7af','#d7d787','#5fafd7','#afafff','#77c7c7','#dadada'},

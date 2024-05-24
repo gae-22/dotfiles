@@ -75,6 +75,14 @@ alias sn="ssh nest"
 alias ls="lsd"
 alias vi="nvim"
 
+function mkcd(){ 
+  mkdir -p $1 && cd $1
+}
+
+function mkcode(){
+  mkdir -p $1 && code $1
+}
+
 # git
 alias gi="git"
 alias gia="git add"
@@ -84,7 +92,6 @@ alias gis="git status"
 alias gim="git merge"
 
 # others
-alias mkcd="mkdir"
 alias reload="source ~/.zshrc"
 alias activate="source .venv/bin/activate"
 
