@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # http://mirrors.ctan.org/support/latexmk/latexmk.txt
-$lualatex = 'lualatex --halt-on-error';
+$lualatex = 'lualatex -shell-escape --halt-on-error';
 $lualatex_silent = 'lualatex --halt-on-error --interaction=batchmode';
 $max_repeat = 10;
 $pdf_mode = 4; # lualatexは4

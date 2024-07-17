@@ -1,102 +1,41 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# themes
-# ZSH_THEME="original"
-# ZSH_THEME='robbyrussell'
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init -)"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-export PATH=$PATH:/usr/local/texlive/2023/bin/universal-darwin
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-    autoload -Uz compinit
-    compinit
-fi
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
-[[ ! -f ~/dotfiles/zsh/p10k.zsh ]] || source ~/dotfiles/zsh/p10k.zsh
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
 plugins=(
-    git
-    zsh-syntax-highlighting
-    zsh-autosuggestions
+	zsh-autosuggestions
+	zsh-completions
+	zsh-syntax-highlighting
 )
 
-source ~/.oh-my-zsh/oh-my-zsh.sh
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
+source $ZSH/oh-my-zsh.sh
 
-# ------------------------------
-# General Settings
-# ------------------------------
-export EDITOR=vim               # set "vim" as default editor
-export LANG=ja_JP.UTF-8         # set language
-export KCODE=u                  # set encoding
-export AUTOFEATURE=true         # automatically generate feature tests
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
 
-autoload -U compinit
-compinit
-zstyle ':completion:*:default' menu select=1
-
-setopt correct                  # correct mistyped commands
-setopt notify                   # report status of background jobs immediately
-unset ZSH_AUTOSUGGEST_USE_ASYNC # disable async autosuggest
-
-# ------------------------------
-# History
-# ------------------------------
-HISTFILE=~/.zsh_history         # the file where histories are saved
-HISTSIZE=1000                   # the number of history entries to save in a session
-SAVEHIST=1000                   # the number of history entries to save in a history file
-setopt hist_ignore_dups         # ignore duplication command history list
-setopt share_history            # share command history data with the other sessions
-setopt hist_reduce_blanks       # remove superfluous blanks before recording entry
-zshaddhistory() {[[ "$?" == 0 ]]}
-
-# ------------------------------
-# Alias
-# ------------------------------
-# ssh
-alias ss="ssh sol"
-alias sn="ssh nest"
-
-alias ls="lsd"
-alias vi="nvim"
-
-function mkcd(){ 
-  mkdir -p $1 && cd $1
-}
-
-function mkcode(){
-  mkdir -p $1 && code $1
-}
-
-# git
-alias gi="git"
-alias gia="git add"
-alias gic="git commit -m"
-alias gip="git push"
-alias gis="git status"
-alias gim="git merge"
-
-# others
+alias vi="vim"
 alias reload="source ~/.zshrc"
-alias activate="source .venv/bin/activate"
+alias python="python3"
 
-alias qiita="npx qiita"
-alias zenn="npx zenn"
-alias att="atcoder-tools"
-alias system_profiler="/usr/sbin/system_profiler"
-source "$HOME/.rye/env"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export http_proxy="http://proxy.uec.ac.jp:8080/"
+export https_proxy="http://proxy.uec.ac.jp:8080/"

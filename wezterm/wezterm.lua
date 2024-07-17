@@ -44,7 +44,7 @@ local config = {
         foreground = '#c0c0c0',
         -- The default background color
         -- background = 'black',
-        background = '#2c2c2c',
+        background = '#1c1c1c',
 
         -- Overrides the cell background color when the current cell is occupied by the
         -- cursor and the cursor style is set to Block

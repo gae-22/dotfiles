@@ -16,10 +16,19 @@
         "editor.wordWrap": "on",
         "editor.semanticHighlighting.enabled": true,
         "editor.tabSize": 4,
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.formatOnPaste": true,
-        "editor.defaultFormatter": "myriad-dreamin.tinymist",
+        "editor.formatOnSave": false,
+        "editor.formatOnType": false,
+        "editor.formatOnPaste": false,
+        "editor.defaultFormatter": "nvarner.typst-lsp",
+        "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?．。，、（）「」［］｛｝《》てにをはがのともへでや",
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        },
+        "editor.unicodeHighlight.invisibleCharacters": true,
         "editor.unicodeHighlight.allowedCharacters": {
             "，": true,
             "．": true,
@@ -30,9 +39,9 @@
             "｛": true,
             "｝": true,
             "＜": true,
-            "＞": true,
-            "：": true
-        }
+            "＞": true
+        },
+        "files.trimTrailingWhitespace": true
     },
 
     // start of latex settings
@@ -173,9 +182,6 @@
         "*.svg": "${capture}*.pdf",
         "*.typ": "${capture}.pdf"
     },
-    // end of latex settings
-
-    "accessibility.signals.sounds.volume": 1,
     "code-runner.runInTerminal": true,
     "diffEditor.wordWrap": "on",
     "editor.accessibilitySupport": "off",
@@ -186,7 +192,6 @@
     "editor.fontFamily": "PleckJP-Regular,HackGenNerdConsole-Regular",
     "editor.fontSize": 18,
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
     "editor.formatOnPaste": true,
     "editor.inlineSuggest.enabled": true,
     "editor.lineHeight": 1.2,
@@ -215,21 +220,92 @@
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.lineHeight": 1.2,
     "workbench.colorTheme": "One Dark Pro",
-    "workbench.editorAssociations": { "*.db": "default" },
+    "workbench.editorAssociations": {
+        "*.db": "hexEditor.hexedit"
+    },
     "workbench.iconTheme": "vscode-great-icons",
     "workbench.productIconTheme": "macos-modern",
     "liveServer.settings.donotShowInfoMsg": true,
     "editor.linkedEditing": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "latex-workshop.bibtex-format.tab": "4 spaces",
-    "typst-lsp.experimentalFormatterMode": "on",
-    "typst-lsp.exportPdf": "onType",
     "typst-preview.cursorIndicator": true,
     "typst-preview.scrollSync": "onSelectionChange",
     "typst-preview.showInActivityBar": true,
     "explorer.compactFolders": false,
     "explorer.fileNesting.expand": false,
-    "explorer.incrementalNaming": "smart",
-    "editor.experimentalInlineEdit.backgroundColoring": true,
-    "editor.experimentalInlineEdit.enabled": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "typst-lsp.experimentalFormatterMode": "on",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "code-runner.executorMap": {
+
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "zig": "zig run",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "rye run python",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "scheme": "csi -script",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runghc",
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        "lisp": "sbcl --script",
+        "kit": "kitc --run",
+        "v": "v run",
+        "sass": "sass --style expanded",
+        "scss": "scss --style expanded",
+        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "sml": "cd $dir && sml $fileName",
+        "mojo": "mojo run",
+        "erlang": "escript",
+        "spwn": "spwn build",
+        "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+        "gleam": "gleam run -m $fileNameWithoutExt"
+    },
+    "Lua.diagnostics.globals": [
+        "hs"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[lua]": {
+        "editor.defaultFormatter": "sumneko.lua"
+    },
+    "accessibility.signalOptions.volume": 1,
 }
