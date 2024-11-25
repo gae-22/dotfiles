@@ -2,6 +2,8 @@
 set number  " 行番号を表示する
 set encoding=UTF-8
 set backspace=indent,eol,start  " バックスペースを有効にする
+set whichwrap=b,s,h,l,<,>,[,]
+set backspace=indent,eol,start
 
 "" キーマップ
 " タブを作成する
@@ -52,10 +54,10 @@ call plug#end()
 colorscheme codedark
 let g:airline_theme = 'codedark'
 " カラーテーマの透明度を変更する
-" highlight Normal ctermbg=NONE guibg=NONE
-" highlight NonText ctermbg=NONE guibg=NONE
-" highlight SpecialKey ctermbg=NONE guibg=NONE
-" highlight EndOfBuffer ctermbg=NONE guibg=NONE
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 let g:airline_transparency = 10
 " powerlineを有効にする
@@ -153,3 +155,4 @@ nnoremap fm :Marks<CR>
 nnoremap fh :History<CR>
 " コミット履歴検索を開く
 nnoremap fc :Commits<CR>
+
